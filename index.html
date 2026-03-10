@@ -12,6 +12,7 @@
 
     :root {
       --green-dark:   #1e4027;
+      --green-light:  #91cca1
       --orange:       #d95f2b;
       --orange-light: #e8845a;
       --cream:        #f5f0e8;
@@ -178,6 +179,14 @@
     }
     .btn-primary:hover { background: var(--orange-light); transform: translateY(-2px); }
 
+      .btn-secondary {
+      font-family: var(--font-mono); font-weight: 700; font-size: 13px;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--cream);
+      background: var(--green-dark); border: none; padding: 14px 32px; border-radius: 4px;
+      cursor: pointer; text-decoration: none; transition: background .2s, transform .15s;
+    }
+    .btn-secondary:hover { background: var(--green-light); transform: translateY(-2px); }
+
     .btn-outline {
       font-family: var(--font-mono); font-size: 13px; letter-spacing: 2px;
       text-transform: uppercase; color: var(--cream); background: transparent;
@@ -286,37 +295,7 @@
 
     /* --- Button Styling --- */
  
-    .btn {
-  display: inline-block;
-  padding: 12px 24px;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: bold;
-  font-family: 'Avenir', 'Avenir Next', 'Nunito', sans-serif;
-  text-transform: none;   /* prevents any inherited capitalisation */
-  margin: 0 10px;
-  transition: filter 0.3s ease;  /* fix: was 'background' which doesn't apply to the hover effect */
-}
-
-.btn:hover {
-  filter: brightness(1.1);
-}
-
-    /* Orange Primary */
-    .btn-primary {
-      background-color: #d95f2b;
-      color: white;
-    }
-
-    /* Green Secondary */
-    .btn-secondary {
-      background-color: #1e4027;
-      color: white;
-    }
-
-    .btn:hover {
-      filter: brightness(1.1);
-    }
+   
   </style>
 </head>
 <body>
