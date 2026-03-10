@@ -285,6 +285,7 @@
     }
 
     /* --- Button Styling --- */
+ 
     .btn {
   display: inline-block;
   padding: 12px 24px;
@@ -292,8 +293,13 @@
   border-radius: 4px;
   font-weight: bold;
   font-family: 'Avenir', 'Avenir Next', 'Nunito', sans-serif;
+  text-transform: none;   /* prevents any inherited capitalisation */
   margin: 0 10px;
-  transition: background 0.3s ease;
+  transition: filter 0.3s ease;  /* fix: was 'background' which doesn't apply to the hover effect */
+}
+
+.btn:hover {
+  filter: brightness(1.1);
 }
 
     /* Orange Primary */
