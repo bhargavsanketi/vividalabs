@@ -142,11 +142,13 @@
        If you want the text wordmark instead, keep the .hero-brand divs.
     */
     .hero-logo-img {
-      max-width: min(420px, 70vw);
+      /*max-width: min(420px, 70vw);
       width: 100%; height: auto;
-      margin-bottom: 28px;
+      margin-bottom: 28px; */
+      <img src="vividalogo.png" class="hero-logo-img">
       /* drop-shadow so it pops on any background */
       filter: drop-shadow(0 4px 24px rgba(0,0,0,0.35));
+      
     }
 
     /* Text wordmark fallback (shown when no logo image is used) */
@@ -232,11 +234,10 @@
            │  2. Uncomment the line below & update the src       │
            │  3. Delete the .logo-wordmark div underneath        │
            └─────────────────────────────────────────────────────┘ -->
-      <!-- <img src="your-logo.svg" alt="Vivida Labs logo" /> -->
+      <img src="vividalogo.png" alt="Vivida Labs logo" /
 
-      <!-- OPTION B: text wordmark (delete this div if using Option A above) -->
+    
       <div>
-        <div class="logo-wordmark">VIV<span>I</span>DA <span style="color:var(--cream)">labs</span></div>
         <div class="logo-sub">Bengaluru's Longevity Kitchen</div>
       </div>
 
