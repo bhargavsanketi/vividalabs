@@ -111,16 +111,12 @@
 
     /* Gradient fade at the bottom so content below blends in */
     .hero-fade {
-      position: absolute; bottom: 0; left: 0; right: 0; height: 50px;
+      position: absolute; bottom: 0; left: 0; right: 0; height: 20px;
       background: linear-gradient(to bottom, transparent, #f5f0e8);
       pointer-events: none; z-index: 1;
     }
 
-     .hero-content-bottom {
-      position: relative;
-      z-index: 10;
-      margin-bottom: 20px;
-    }
+    
 
     /* ── HERO CONTENT ── */
     .hero-content {
@@ -128,6 +124,12 @@
       text-align: center; padding: 0 24px;
       display: flex; flex-direction: column; align-items: center; gap: 0;
       animation: fadeUp 1s cubic-bezier(0.22,1,0.36,1) 0.3s both;
+    }
+
+     .hero-content-bottom {
+      position: relative;
+      z-index: 10;
+      margin-bottom: 20px;
     }
 
     @keyframes fadeUp {
@@ -283,7 +285,7 @@
 
   <section class="hero">
     <div class="hero-bg"></div>
-
+<div class="hero-fade">
     <div class="hero-content-bottom">
       <div class="hero-actions">
         <a href="#" class="btn btn-primary">Our Products</a>
