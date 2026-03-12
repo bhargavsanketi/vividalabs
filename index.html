@@ -114,7 +114,7 @@
     }
 
     .quote-half {
-      width: 50%;
+      width: 70%;
       display: flex;
       flex-direction: column;
       font-family: var(--font-body);
@@ -132,14 +132,14 @@
     .quote-left {
       align-items: flex-end;
       text-align: right;
-      padding-right: 5vw;
+      padding-right: 10vw;
       color: #ff6a33; /* Vivid orange to match the mockup */
     }
 
     .quote-right {
       align-items: flex-start;
       text-align: left;
-      padding-left: 5vw;
+      padding-left: 10vw;
       color: #5ade73; /* Vivid green to match the mockup */
     }
 
@@ -281,6 +281,144 @@
     @media (max-width: 600px) {
       .nav-links { display: none; }
       footer { padding: 40px 24px 24px; }
+    }
+
+    /* ═══════════════════════════════════════════
+       PRODUCTS SECTION
+    ═══════════════════════════════════════════ */
+    #products {
+      background: var(--cream);
+      position: relative;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .product-card {
+      background: #ffffff;
+      border: 1px solid rgba(30,64,39,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(30,64,39,0.08);
+    }
+
+    .product-image-container {
+      width: 100%;
+      height: 240px;
+      background: var(--cream-dark);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .product-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* Positioning to feature the powder and bowl nicely */
+      object-position: center 20%; 
+    }
+
+    .product-content {
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 8px;
+    }
+
+    .product-subtitle {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 20px;
+    }
+
+    .product-description {
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-mid);
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .nutrition-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .tag {
+      background: rgba(145, 204, 161, 0.2);
+      color: var(--green-dark);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+    }
+
+    .product-action {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(30,64,39,0.1);
+    }
+
+    .product-price {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--green-dark);
+    }
+
+    /* "Coming Soon" Card Overrides */
+    .card-disabled {
+      background: rgba(245, 240, 232, 0.5);
+      border: 1px dashed rgba(30,64,39,0.2);
+      pointer-events: none;
+    }
+    
+    .card-disabled .product-image-container {
+      background: rgba(30,64,39,0.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-disabled .product-title, 
+    .card-disabled .product-description {
+      color: rgba(74, 74, 74, 0.5);
+    }
+
+    .lock-icon {
+      font-size: 32px;
+      opacity: 0.2;
     }
   </style>
 </head>
