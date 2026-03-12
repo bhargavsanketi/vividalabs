@@ -6,7 +6,7 @@
   <title>Vivida Labs</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Courier+Prime:wght@400;700&family=Lato:ital,wght@0,300;0,400;0,700;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -21,47 +21,51 @@
       --text-dark:    #1a1a1a;
       --text-mid:     #4a4a4a;
       --font-display: 'Playfair Display', serif;
-      --font-mono:    'Courier Prime', monospace;
       --font-body:    'Lato', sans-serif;
+      /* Minimalist Font Swap */
+      --font-clean:   'Lato', sans-serif; 
     }
 
     html, body { width: 100%; height: 100%; }
 
     /* ═══════════════════════════════════════════
-       NAVBAR
+       NAVBAR - Cleaned & Refined
     ═══════════════════════════════════════════ */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 52px; height: 68px;
-      background: rgba(30, 64, 39, 0.50);
-      backdrop-filter: blur(16px) saturate(160%);
-      -webkit-backdrop-filter: blur(16px) saturate(160%);
-      border-bottom: 1px solid rgba(245,240,232,0.10);
+      padding: 0 52px; height: 72px;
+      background: rgba(30, 64, 39, 0.85);
+      backdrop-filter: blur(20px) saturate(160%);
+      -webkit-backdrop-filter: blur(20px) saturate(160%);
+      border-bottom: 1px solid rgba(245,240,232,0.08);
     }
 
-    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .nav-logo img { height: 60px; width: auto; object-fit: contain; display: block; }
+    .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+    .nav-logo img { height: 54px; width: auto; object-fit: contain; display: block; }
+    
     .logo-sub {
-      font-family: var(--font-mono); font-size: 9px; letter-spacing: 1.5px;
-      color: rgba(245,240,232,0.50); text-transform: uppercase; margin-top: 3px;
+      font-family: var(--font-clean); font-size: 10px; font-weight: 400; 
+      letter-spacing: 1px; color: rgba(245,240,232,0.6); 
+      text-transform: uppercase; margin-top: 2px;
     }
 
-    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links { display: flex; align-items: center; gap: 8px; list-style: none; }
     .nav-links a {
-      font-family: var(--font-mono); font-size: 13px; letter-spacing: 1.5px;
-      text-transform: uppercase; color: rgba(245,240,232,0.72); text-decoration: none;
-      padding: 8px 18px; border-radius: 4px; transition: color .2s, background .2s;
+      font-family: var(--font-clean); font-size: 13px; font-weight: 400;
+      letter-spacing: 0.8px; text-transform: uppercase; 
+      color: rgba(245,240,232,0.8); text-decoration: none;
+      padding: 8px 16px; transition: all .3s ease;
     }
-    .nav-links a:hover { color: var(--cream); background: rgba(245,240,232,0.08); }
+    .nav-links a:hover { color: #fff; opacity: 1; }
 
     .nav-cta {
-      font-family: var(--font-mono); font-weight: 700; font-size: 12px;
-      letter-spacing: 2px; text-transform: uppercase; color: var(--cream);
-      background: var(--orange); border: none; padding: 10px 22px; border-radius: 4px;
-      cursor: pointer; text-decoration: none; transition: background .2s, transform .15s;
+      font-family: var(--font-clean); font-weight: 700; font-size: 11px;
+      letter-spacing: 1.2px; text-transform: uppercase; color: var(--cream);
+      background: var(--orange); border: none; padding: 12px 24px; border-radius: 2px;
+      cursor: pointer; text-decoration: none; transition: all .3s ease;
     }
-    .nav-cta:hover { background: var(--orange-light); transform: translateY(-1px); }
+    .nav-cta:hover { background: var(--orange-light); letter-spacing: 1.5px; }
 
     /* ═══════════════════════════════════════════
        HERO
@@ -72,27 +76,16 @@
     }
 
     .hero-bg {
-      position: absolute;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      /* Swapped to the clean background image */
+      position: absolute; inset: 0; width: 100vw; height: 100vh;
       background-image: url('Gemini_Generated_Image_tjw3a9tjw3a9tjw3.png');
-      background-size: 120% 120%;
-      background-position: center;
-      background-repeat: no-repeat;
-      animation: heroZoom 10s ease-out forwards;
-      z-index: 0;
+      background-size: 120% 120%; background-position: center; background-repeat: no-repeat;
+      animation: heroZoom 10s ease-out forwards; z-index: 0;
     }
 
-    /* 50% Cream Tint Overlay */
     .hero-overlay {
-      position: absolute;
-      inset: 0;
-      /* Hard stop at 50% to tint only the left side */
+      position: absolute; inset: 0;
       background: linear-gradient(to right, rgba(245, 240, 232, 0.85) 0%, rgba(245, 240, 232, 0.85) 100%);
-      z-index: 1;
-      pointer-events: none;
+      z-index: 1; pointer-events: none;
     }
 
     @keyframes heroZoom {
@@ -100,48 +93,22 @@
       to   { transform: scale(1.00); }
     }
 
-    /* Central Split Quote */
     .hero-center {
-      position: absolute;
-      top: 45%;
-      left: 0;
-      width: 100%;
-      transform: translateY(-50%);
-      z-index: 5;
-      display: flex;
-      align-items: center;
-      pointer-events: none;
+      position: absolute; top: 45%; left: 0; width: 100%;
+      transform: translateY(-50%); z-index: 5;
+      display: flex; align-items: center; pointer-events: none;
     }
 
     .quote-half {
-      width: 70%;
-      display: flex;
-      flex-direction: column;
-      font-family: var(--font-body);
-      font-style: italic;
-      font-weight: 700;
-      /* Clamped font size so it shrinks smoothly on smaller screens */
-      font-size: clamp(24px, 5vw, 85px); 
-      line-height: 1.15;
-      /* The dark outline stroke */
-      -webkit-text-stroke: 1.5px #1a1a1a;
-      letter-spacing: -0.5px;
+      width: 70%; display: flex; flex-direction: column;
+      font-family: var(--font-body); font-style: italic; font-weight: 700;
+      font-size: clamp(24px, 5vw, 85px); line-height: 1.15;
+      -webkit-text-stroke: 1.5px #1a1a1a; letter-spacing: -0.5px;
       text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.15);
     }
 
-    .quote-left {
-      align-items: flex-end;
-      text-align: right;
-      padding-right: 10vw;
-      color: #ff6a33; /* Vivid orange to match the mockup */
-    }
-
-    .quote-right {
-      align-items: flex-start;
-      text-align: left;
-      padding-left: 10vw;
-      color: #5ade73; /* Vivid green to match the mockup */
-    }
+    .quote-left { align-items: flex-end; text-align: right; padding-right: 10vw; color: #ff6a33; }
+    .quote-right { align-items: flex-start; text-align: left; padding-left: 10vw; color: #5ade73; }
 
     .hero-fade {
       position: absolute; bottom: 0; left: 0; right: 0; height: 50px;
@@ -150,37 +117,30 @@
     }
 
     .hero-content-bottom {
-      position: relative;
-      z-index: 10;
-      margin-bottom: 72px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
+      position: relative; z-index: 10; margin-bottom: 80px;
+      display: flex; flex-direction: column; align-items: center; gap: 24px;
     }
 
-    .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
-    .btn-primary {
-      font-family: var(--font-mono); font-weight: 700; font-size: 13px;
-      letter-spacing: 2px; text-transform: uppercase; color: var(--cream);
-      background: var(--orange); border: none; padding: 14px 32px; border-radius: 4px;
-      cursor: pointer; text-decoration: none; transition: background .2s, transform .15s;
+    /* Minimalist Buttons */
+    .btn-primary, .btn-secondary {
+      font-family: var(--font-clean); font-weight: 700; font-size: 12px;
+      letter-spacing: 1.5px; text-transform: uppercase; padding: 16px 36px;
+      border-radius: 2px; cursor: pointer; text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      border: none;
     }
-    .btn-primary:hover { background: var(--orange-light); transform: translateY(-2px); }
 
-    .btn-secondary {
-      font-family: var(--font-mono); font-weight: 700; font-size: 13px;
-      letter-spacing: 2px; text-transform: uppercase; color: var(--cream);
-      background: var(--green-dark); border: none; padding: 14px 32px; border-radius: 4px;
-      cursor: pointer; text-decoration: none; transition: background .2s, transform .15s;
-    }
-    .btn-secondary:hover { background: var(--green-mid); transform: translateY(-2px); }
+    .btn-primary { color: var(--cream); background: var(--orange); }
+    .btn-primary:hover { background: var(--orange-light); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(217, 95, 43, 0.3); }
+
+    .btn-secondary { color: var(--cream); background: var(--green-dark); }
+    .btn-secondary:hover { background: var(--green-mid); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(30, 64, 39, 0.3); }
 
     .scroll-hint {
       position: absolute; bottom: 44px; left: 50%; z-index: 10;
-      transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px;
       animation: bob 2.4s ease-in-out infinite;
     }
     @keyframes bob {
@@ -188,238 +148,78 @@
       50%       { transform: translateX(-50%) translateY(7px); }
     }
     .scroll-hint span {
-      font-family: var(--font-mono); font-size: 10px; letter-spacing: 2.5px;
-      text-transform: uppercase; color: rgba(245,240,232,.80);
+      font-family: var(--font-clean); font-size: 10px; font-weight: 400;
+      letter-spacing: 3px; text-transform: uppercase; color: rgba(30,64,39,0.5);
     }
     .scroll-arrow {
-      width: 16px; height: 16px;
-      border-right: 1.5px solid rgba(245,240,232,.80);
-      border-bottom: 1.5px solid rgba(245,240,232,.80);
+      width: 12px; height: 12px;
+      border-right: 1.5px solid rgba(30,64,39,0.5);
+      border-bottom: 1.5px solid rgba(30,64,39,0.5);
       transform: rotate(45deg);
     }
 
     /* ═══════════════════════════════════════════
-       SHARED SECTION STYLES
+       SECTIONS
     ═══════════════════════════════════════════ */
     .section-wrap { max-width: 1160px; margin: 0 auto; padding: 100px 48px; }
     .section-label {
-      font-family: var(--font-mono); font-size: 11px; letter-spacing: 3px;
-      text-transform: uppercase; color: var(--orange); margin-bottom: 14px;
+      font-family: var(--font-clean); font-size: 11px; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 16px;
     }
     .section-title {
       font-family: var(--font-display); font-weight: 700;
       font-size: clamp(28px, 4vw, 48px); line-height: 1.15;
-      color: var(--green-dark); margin-bottom: 20px;
+      color: var(--green-dark); margin-bottom: 24px;
     }
     .section-body {
       font-family: var(--font-body); font-size: 17px; font-weight: 300;
       line-height: 1.8; color: var(--text-mid); max-width: 600px;
     }
 
-    .divider { width: 100%; height: 1px; background: rgba(30,64,39,0.12); }
+    .divider { width: 100%; height: 1px; background: rgba(30,64,39,0.08); }
 
     /* ═══════════════════════════════════════════
-       ABOUT SECTION
+       ABOUT & PRODUCTS (Retained from original)
     ═══════════════════════════════════════════ */
-    #about {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .about-bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('product_lifestyle.png');
-      background-size: cover;
-      background-position: center;
-      filter: blur(6px) saturate(0.8);
-      transform: scale(1.06);
-      z-index: 0;
-    }
-
-    .about-tint {
-      position: absolute;
-      inset: 0;
-      background: rgba(245, 240, 232, 0.82);
-      z-index: 1;
-    }
-
-    #about .section-wrap {
-      position: relative;
-      z-index: 2;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
-    .about-quote {
-      font-family: var(--font-display); font-style: italic;
-      font-size: clamp(17px, 2.2vw, 24px); color: var(--green-dark);
-      line-height: 1.55; border-left: 3px solid var(--orange);
-      padding-left: 24px; margin: 32px 0;
-    }
+    #about { position: relative; overflow: hidden; }
+    .about-bg { position: absolute; inset: 0; background-image: url('product_lifestyle.png'); background-size: cover; background-position: center; filter: blur(6px) saturate(0.8); transform: scale(1.06); z-index: 0; }
+    .about-tint { position: absolute; inset: 0; background: rgba(245, 240, 232, 0.82); z-index: 1; }
+    #about .section-wrap { position: relative; z-index: 2; }
+    .about-grid { display: grid; grid-template-columns: 1fr; max-width: 720px; margin: 0 auto; }
+    .about-quote { font-family: var(--font-display); font-style: italic; font-size: clamp(17px, 2.2vw, 24px); color: var(--green-dark); line-height: 1.55; border-left: 3px solid var(--orange); padding-left: 24px; margin: 32px 0; }
     .about-quote em { color: var(--orange); font-style: normal; }
+    .about-body-pair { display: flex; flex-direction: column; gap: 16px; }
 
-    .about-body-pair {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    /* ═══════════════════════════════════════════
-       RESPONSIVE
-    ═══════════════════════════════════════════ */
-    @media (max-width: 900px) {
-      nav { padding: 0 20px; }
-      .section-wrap { padding: 80px 24px; }
-      .about-grid { grid-template-columns: 1fr; gap: 40px; }
-    }
-    @media (max-width: 600px) {
-      .nav-links { display: none; }
-      footer { padding: 40px 24px 24px; }
-    }
-
-    /* ═══════════════════════════════════════════
-       PRODUCTS SECTION
-    ═══════════════════════════════════════════ */
-    #products {
-      background: var(--cream);
-      position: relative;
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 32px;
-      margin-top: 48px;
-    }
-
-    .product-card {
-      background: #ffffff;
-      border: 1px solid rgba(30,64,39,0.1);
-      border-radius: 8px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(30,64,39,0.08);
-    }
-
-    .product-image-container {
-      width: 100%;
-      height: 240px;
-      background: var(--cream-dark);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .product-image-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      /* Positioning to feature the powder and bowl nicely */
-      object-position: center 20%; 
-    }
-
-    .product-content {
-      padding: 32px 24px;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-
-    .product-title {
-      font-family: var(--font-display);
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--green-dark);
-      margin-bottom: 8px;
-    }
-
-    .product-subtitle {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--orange);
-      margin-bottom: 20px;
-    }
-
-    .product-description {
-      font-family: var(--font-body);
-      font-size: 15px;
-      line-height: 1.6;
-      color: var(--text-mid);
-      margin-bottom: 24px;
-      flex-grow: 1;
-    }
-
-    .nutrition-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 24px;
-    }
-
-    .tag {
-      background: rgba(145, 204, 161, 0.2);
-      color: var(--green-dark);
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      padding: 6px 12px;
-      border-radius: 20px;
-      text-transform: uppercase;
-    }
-
-    .product-action {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: auto;
-      padding-top: 20px;
-      border-top: 1px solid rgba(30,64,39,0.1);
-    }
-
-    .product-price {
-      font-family: var(--font-mono);
-      font-weight: 700;
-      font-size: 16px;
-      color: var(--green-dark);
-    }
-
-    /* "Coming Soon" Card Overrides */
-    .card-disabled {
-      background: rgba(245, 240, 232, 0.5);
-      border: 1px dashed rgba(30,64,39,0.2);
-      pointer-events: none;
+    #products { background: var(--cream); position: relative; }
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; margin-top: 48px; }
+    .product-card { background: #ffffff; border: 1px solid rgba(30,64,39,0.1); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; transition: all 0.3s ease; }
+    .product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(30,64,39,0.08); }
+    .product-image-container { width: 100%; height: 240px; background: var(--cream-dark); overflow: hidden; position: relative; }
+    .product-image-container img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+    .product-content { padding: 32px 24px; display: flex; flex-direction: column; flex-grow: 1; }
+    .product-title { font-family: var(--font-display); font-size: 28px; font-weight: 700; color: var(--green-dark); margin-bottom: 8px; }
+    
+    .product-subtitle { 
+        font-family: var(--font-clean); font-size: 11px; font-weight: 700;
+        letter-spacing: 1.2px; text-transform: uppercase; color: var(--orange); margin-bottom: 20px; 
     }
     
-    .card-disabled .product-image-container {
-      background: rgba(30,64,39,0.04);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .product-description { font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--text-mid); margin-bottom: 24px; flex-grow: 1; }
+    .nutrition-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+    .tag { background: rgba(145, 204, 161, 0.2); color: var(--green-dark); font-family: var(--font-clean); font-size: 10px; font-weight: 700; letter-spacing: 0.5px; padding: 6px 12px; border-radius: 2px; text-transform: uppercase; }
+    .product-action { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 20px; border-top: 1px solid rgba(30,64,39,0.1); }
+    
+    .product-price { 
+        font-family: var(--font-clean); font-weight: 700; font-size: 15px; color: var(--green-dark); 
     }
 
-    .card-disabled .product-title, 
-    .card-disabled .product-description {
-      color: rgba(74, 74, 74, 0.5);
-    }
+    .card-disabled { background: rgba(245, 240, 232, 0.5); border: 1px dashed rgba(30,64,39,0.2); pointer-events: none; }
+    .card-disabled .product-image-container { background: rgba(30,64,39,0.04); display: flex; align-items: center; justify-content: center; }
+    .card-disabled .product-title, .card-disabled .product-description { color: rgba(74, 74, 74, 0.5); }
+    .lock-icon { font-size: 32px; opacity: 0.2; }
 
-    .lock-icon {
-      font-size: 32px;
-      opacity: 0.2;
-    }
+    @media (max-width: 900px) { nav { padding: 0 20px; } .section-wrap { padding: 80px 24px; } }
+    @media (max-width: 600px) { .nav-links { display: none; } }
   </style>
 </head>
 
@@ -429,7 +229,7 @@
     <a href="#" class="nav-logo">
       <img src="vivida_logo_glow.png" alt="Vivida Labs logo">
       <div>
-        <div class="logo-sub">Bengaluru's Longevity lab and Kitchen</div>
+        <div class="logo-sub">Bengaluru's Longevity Lab & Kitchen</div>
       </div>
     </a>
 
@@ -440,12 +240,11 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
 
-    <a href="https://wa.me/919960443435" target="_blank" class="nav-cta">Pre-order →</a>
+    <a href="https://wa.me/919960443435" target="_blank" class="nav-cta">Pre-order</a>
   </nav>
 
   <section class="hero">
     <div class="hero-bg"></div>
-    
     <div class="hero-overlay"></div>
 
     <div class="hero-center">
@@ -475,6 +274,7 @@
   </section>
 
   <div class="divider"></div>
+
   <section id="about">
     <div class="about-bg"></div>
     <div class="about-tint"></div>
@@ -494,7 +294,7 @@
               We want to make South Indian superfoods, harnessing cutting-edge science from the fields of aging, metabolism and organ physiology.
             </p>
             <p class="section-body">
-              Every product strips out fillers and replaces them with functional, bioavailable ingredients rooted in science — and the traditional taste of the South Indian kitchen. Each recipe is a carefully researched protocol guaranteeing the highest flavor while fortifying it with supplements — every step matters.
+              Every product strips out fillers and replaces them with functional, bioavailable ingredients rooted in science — and the traditional taste of the South Indian kitchen.
             </p>
           </div>
         </div>
@@ -502,74 +302,48 @@
     </div>
   </section>
 
-
   <div class="divider"></div>
+
   <section id="products">
     <div class="section-wrap">
       <p class="section-label">Our Protocols</p>
       <h2 class="section-title">Formulated for function.</h2>
       
       <div class="products-grid">
-        
         <div class="product-card">
           <div class="product-image-container">
-            <img src="cellularpudi.png" alt="Cellular Pudi in a bowl">
+            <img src="cellularpudi.png" alt="Cellular Pudi">
           </div>
           <div class="product-content">
             <h3 class="product-title">Cellular Pudi</h3>
             <p class="product-subtitle">Taste & Health Enhancer</p>
             <p class="product-description">
-              We stripped out starchy fillers and replaced them with a bioavailable seed and yeast matrix. Upgrade your idly, dosa, and veggies with a protocol designed for longevity.
+              Upgrade your idly, dosa, and veggies with a protocol designed for longevity. We swapped starchy fillers for a bioavailable seed and yeast matrix.
             </p>
-            
             <div class="nutrition-tags">
               <span class="tag">Vegan</span>
               <span class="tag">Diabetes Friendly</span>
-              <span class="tag">High B12 (250% DV)</span>
-              <span class="tag">Omega-3 / Healthy fats</span>
-              <span class="tag">Magnesium & Zinc</span>
-              <span class="tag">protein and fiber to fuel your day!</span>
+              <span class="tag">High B12</span>
+              <span class="tag">Omega-3</span>
             </div>
-            
             <div class="product-action">
               <span class="product-price">₹---</span>
-              <a href="https://wa.me/919960443435" target="_blank" class="btn-primary" style="padding: 10px 20px; font-size: 11px;">Pre-Order</a>
+              <a href="https://wa.me/919960443435" target="_blank" class="btn-primary" style="padding: 10px 24px; font-size: 10px;">Pre-Order</a>
             </div>
           </div>
         </div>
 
         <div class="product-card card-disabled">
-          <div class="product-image-container">
-            <span class="lock-icon">🔒</span>
-          </div>
+          <div class="product-image-container"><span class="lock-icon">🔒</span></div>
           <div class="product-content">
             <h3 class="product-title">Protocol 02</h3>
             <p class="product-subtitle">In Development</p>
-            <p class="product-description">
-              Our lab is currently testing our next longevity protocol. Focused on metabolic optimization and sustained energy release.
-            </p>
+            <p class="product-description">Testing our next longevity protocol. Focused on metabolic optimization and sustained energy release.</p>
             <div class="product-action" style="border-top: none;">
               <span class="product-subtitle" style="margin: 0; color: rgba(217, 95, 43, 0.5);">Coming Q4 2026</span>
             </div>
           </div>
         </div>
-
-        <div class="product-card card-disabled">
-          <div class="product-image-container">
-            <span class="lock-icon">🔒</span>
-          </div>
-          <div class="product-content">
-            <h3 class="product-title">Protocol 03</h3>
-            <p class="product-subtitle">In Development</p>
-            <p class="product-description">
-              Advanced cellular hydration and electrolyte transport matrix. Formulated for high-heat environments and rapid recovery.
-            </p>
-            <div class="product-action" style="border-top: none;">
-              <span class="product-subtitle" style="margin: 0; color: rgba(217, 95, 43, 0.5);">Coming 2027</span>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
