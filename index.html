@@ -6,7 +6,7 @@
   <title>Vivida Labs</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Courier+Prime:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Courier+Prime:wght@400;700&family=Lato:ital,wght@0,300;0,400;0,700;1,700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -72,21 +72,27 @@
     }
 
     .hero-bg {
-      position: fixed;
+      position: absolute;
       inset: 0;
       width: 100vw;
       height: 100vh;
-      background-image: url('vividabackground_2.png');
+      /* Swapped to the clean background image */
+      background-image: url('Gemini_Generated_Image_tjw3a9tjw3a9tjw3.png');
       background-size: 100% 100%;
       background-position: center;
       background-repeat: no-repeat;
       animation: heroZoom 10s ease-out forwards;
-      z-index: -1;
+      z-index: 0;
     }
 
-    .hero-bg::before {
-      content: ''; position: absolute; inset: 0;
-      background: rgba(10, 24, 14, 0);
+    /* 50% Cream Tint Overlay */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      /* Hard stop at 50% to tint only the left side */
+      background: linear-gradient(to right, rgba(245, 240, 232, 0.85) 0%, rgba(245, 240, 232, 0.85) 50%, transparent 50%, transparent 100%);
+      z-index: 1;
+      pointer-events: none;
     }
 
     @keyframes heroZoom {
@@ -94,10 +100,53 @@
       to   { transform: scale(1.00); }
     }
 
+    /* Central Split Quote */
+    .hero-center {
+      position: absolute;
+      top: 45%;
+      left: 0;
+      width: 100%;
+      transform: translateY(-50%);
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      pointer-events: none;
+    }
+
+    .quote-half {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      font-family: var(--font-body);
+      font-style: italic;
+      font-weight: 700;
+      /* Clamped font size so it shrinks smoothly on smaller screens */
+      font-size: clamp(24px, 5vw, 85px); 
+      line-height: 1.15;
+      /* The dark outline stroke */
+      -webkit-text-stroke: 2.5px #1a1a1a;
+      letter-spacing: -0.5px;
+      text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .quote-left {
+      align-items: flex-end;
+      text-align: right;
+      padding-right: 2vw;
+      color: #ff6a33; /* Vivid orange to match the mockup */
+    }
+
+    .quote-right {
+      align-items: flex-start;
+      text-align: left;
+      padding-left: 2vw;
+      color: #5ade73; /* Vivid green to match the mockup */
+    }
+
     .hero-fade {
       position: absolute; bottom: 0; left: 0; right: 0; height: 50px;
       background: linear-gradient(to bottom, transparent, #f5f0e8);
-      pointer-events: none; z-index: 1;
+      pointer-events: none; z-index: 2;
     }
 
     .hero-content-bottom {
@@ -129,7 +178,7 @@
     .btn-secondary:hover { background: var(--green-mid); transform: translateY(-2px); }
 
     .scroll-hint {
-      position: absolute; bottom: 44px; left: 50%; z-index: 3;
+      position: absolute; bottom: 44px; left: 50%; z-index: 10;
       transform: translateX(-50%);
       display: flex; flex-direction: column; align-items: center; gap: 6px;
       animation: bob 2.4s ease-in-out infinite;
@@ -140,12 +189,12 @@
     }
     .scroll-hint span {
       font-family: var(--font-mono); font-size: 10px; letter-spacing: 2.5px;
-      text-transform: uppercase; color: rgba(245,240,232,.40);
+      text-transform: uppercase; color: rgba(245,240,232,.80);
     }
     .scroll-arrow {
       width: 16px; height: 16px;
-      border-right: 1.5px solid rgba(245,240,232,.35);
-      border-bottom: 1.5px solid rgba(245,240,232,.35);
+      border-right: 1.5px solid rgba(245,240,232,.80);
+      border-bottom: 1.5px solid rgba(245,240,232,.80);
       transform: rotate(45deg);
     }
 
@@ -184,7 +233,7 @@
       background-size: cover;
       background-position: center;
       filter: blur(6px) saturate(0.8);
-      transform: scale(1.06); /* prevents blur edge bleed */
+      transform: scale(1.06);
       z-index: 0;
     }
 
@@ -238,7 +287,6 @@
 
 <body>
 
-  <!-- NAVBAR -->
   <nav>
     <a href="#" class="nav-logo">
       <img src="vivida_logo_glow.png" alt="Vivida Labs logo">
@@ -257,9 +305,21 @@
     <a href="https://wa.me/919960443435" target="_blank" class="nav-cta">Pre-order →</a>
   </nav>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-bg"></div>
+    
+    <div class="hero-overlay"></div>
+
+    <div class="hero-center">
+      <div class="quote-half quote-left">
+        <span>"Let food be</span>
+        <span>thy medicine</span>
+      </div>
+      <div class="quote-half quote-right">
+        <span>and medicine</span>
+        <span>be thy food."</span>
+      </div>
+    </div>
 
     <div class="hero-content-bottom">
       <div class="hero-actions">
@@ -276,7 +336,6 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
   <div class="divider"></div>
   <section id="about">
     <div class="about-bg"></div>
