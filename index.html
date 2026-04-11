@@ -90,12 +90,13 @@
     }
 
   .hero-bg {
-
       position: absolute; inset: 0;
       background-image: url('Gemini_Generated_Image_tjw3a9tjw3a9tjw3.png');
-      background-size: cover; background-position: center; background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: var(--cream); /* fills empty space so it blends with the overlay */
       animation: heroZoom 10s ease-out forwards; z-index: 0;
-
     }
 
 
