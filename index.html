@@ -90,12 +90,12 @@
     }
 
   .hero-bg {
-
-      position: absolute; inset: 0; width: 100vw; height: 100vh;
-      background-image: url('Gemini_Generated_Image_tjw3a9tjw3a9tjw3.png');
-      background-size: 125% 125%; background-position: center; background-repeat: no-repeat;
-      animation: heroZoom 10s ease-out forwards; z-index: 0;
-
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
+      animation: heroZoom 10s ease-out forwards;
     }
 
 
@@ -114,44 +114,45 @@
 
 .hero-center {
   position: absolute;
-  top: 45%;
+  top: 50%;
   left: 0;
   width: 100%;
-  transform: translateY(-50%);
+  transform: translateY(-58%); /* Nudge up slightly so buttons have breathing room */
   z-index: 5;
   display: flex;
   flex-direction: column; /* Stack vertically on mobile */
   align-items: center;
+  padding: 0 24px;
   pointer-events: none;
 }
 
 .quote-half {
-  width: 90%; /* Increased for mobile room */
+  width: 100%;
   display: flex;
   flex-direction: column;
   font-family: var(--font-body);
   font-style: italic;
   font-weight: 700;
-  font-size: clamp(28px, 8vw, 85px); /* Adjusted min-size and scaling */
-  line-height: 1.1;
-  -webkit-text-stroke: 1px #1a1a1a; /* Thinner stroke for smaller screens */
+  font-size: clamp(26px, 7.2vw, 85px); /* Scales down on narrow phones */
+  line-height: 1.15;
+  -webkit-text-stroke: 0.4px #1a1a1a; /* Lighter stroke on mobile for readability */
   letter-spacing: -0.5px;
   text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.quote-left { 
-  align-items: flex-start; /* Default to start for mobile */
-  text-align: left; 
+.quote-left {
+  align-items: center; /* Centered on mobile when stacked */
+  text-align: center;
   padding-right: 0;
-  margin-bottom: 10px;
-  color: #d95f2b; 
+  margin-bottom: 14px;
+  color: #d95f2b;
 }
 
-.quote-right { 
-  align-items: flex-end; /* Default to end for mobile */
-  text-align: right; 
+.quote-right {
+  align-items: center; /* Centered on mobile when stacked */
+  text-align: center;
   padding-left: 0;
-  color: #3a7048; 
+  color: #3a7048;
 }
 
 /* ═══════════════════════════════════════════
@@ -285,7 +286,11 @@
     .card-disabled .product-title, .card-disabled .product-description { color: rgba(74, 74, 74, 0.5); }
     .lock-icon { font-size: 32px; opacity: 0.2; }
 
-    @media (max-width: 900px) { nav { padding: 0 20px; } .section-wrap { padding: 80px 24px; } }
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; }
+      .section-wrap { padding: 80px 24px; }
+      .hero-content-bottom { margin-bottom: 110px; }
+    }
     @media (max-width: 600px) { .nav-links { display: none; } }
 
     /* ═══════════════════════════════════════════
@@ -507,7 +512,7 @@
   </nav>
 
   <section class="hero">
-    <div class="hero-bg"></div>
+    <img class="hero-bg" src="Gemini_Generated_Image_tjw3a9tjw3a9tjw3.png" alt="" role="presentation">
     <div class="hero-overlay"></div>
 
     <div class="hero-center">
