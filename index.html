@@ -117,10 +117,10 @@
   top: 50%;
   left: 0;
   width: 100%;
-  transform: translateY(-58%); /* Nudge up slightly so buttons have breathing room */
+  transform: translateY(-58%);
   z-index: 5;
   display: flex;
-  flex-direction: column; /* Stack vertically on mobile */
+  flex-direction: column;
   align-items: center;
   padding: 0 24px;
   pointer-events: none;
@@ -133,49 +133,48 @@
   font-family: var(--font-body);
   font-style: italic;
   font-weight: 700;
-  font-size: clamp(26px, 7.2vw, 85px); /* Scales down on narrow phones */
+  /* min(7vw, 9vh) keeps font from blowing up on short screens (landscape phones) */
+  font-size: clamp(20px, min(7vw, 9vh), 85px);
   line-height: 1.15;
-  -webkit-text-stroke: 0.4px #1a1a1a; /* Lighter stroke on mobile for readability */
+  -webkit-text-stroke: 0.4px #1a1a1a;
   letter-spacing: -0.5px;
   text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .quote-left {
-  align-items: center; /* Centered on mobile when stacked */
+  align-items: center;
   text-align: center;
-  padding-right: 0;
   margin-bottom: 14px;
   color: #d95f2b;
 }
 
 .quote-right {
-  align-items: center; /* Centered on mobile when stacked */
+  align-items: center;
   text-align: center;
-  padding-left: 0;
   color: #3a7048;
 }
 
-/* ═══════════════════════════════════════════
-   MOBILE OVERRIDES (The Fix)
-   ═══════════════════════════════════════════ */
-@media (min-width: 901px) {
-  .hero-center {
-    flex-direction: row; /* Side-by-side on desktop */
-  }
-  .quote-half {
-    width: 70%;
-    -webkit-text-stroke: 1.5px #1a1a1a;
-  }
-  .quote-left { 
-    align-items: flex-end; 
-    text-align: right; 
-    padding-right: 10vw; 
-  }
-  .quote-right { 
-    align-items: flex-start; 
-    text-align: left; 
-    padding-left: 10vw; 
-  }
+/* Tablets (768px+) — switch to side-by-side */
+@media (min-width: 768px) {
+  .hero-center    { flex-direction: row; }
+  .quote-half     { width: 50%; -webkit-text-stroke: 1px #1a1a1a; }
+  .quote-left     { align-items: flex-end; text-align: right; padding-right: 4vw; margin-bottom: 0; }
+  .quote-right    { align-items: flex-start; text-align: left; padding-left: 4vw; }
+}
+
+/* Desktop (1024px+) — wider padding, heavier stroke */
+@media (min-width: 1024px) {
+  .quote-half     { width: 70%; -webkit-text-stroke: 1.5px #1a1a1a; }
+  .quote-left     { padding-right: 10vw; }
+  .quote-right    { padding-left: 10vw; }
+}
+
+/* Landscape phones — force side-by-side so 4 lines don't stack in a short viewport */
+@media (orientation: landscape) and (max-height: 500px) {
+  .hero-center    { flex-direction: row; }
+  .quote-half     { width: 50%; -webkit-text-stroke: 0.5px #1a1a1a; }
+  .quote-left     { align-items: flex-end; text-align: right; padding-right: 3vw; margin-bottom: 0; }
+  .quote-right    { align-items: flex-start; text-align: left; padding-left: 3vw; }
 }
 
     .hero-fade {
